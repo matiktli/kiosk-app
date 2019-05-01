@@ -29,8 +29,8 @@ public class Discount extends BasicEntity {
     @Column(name = "organizator")
     private String organizator;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
 }

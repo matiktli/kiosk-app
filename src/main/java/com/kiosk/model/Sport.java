@@ -27,8 +27,8 @@ public class Sport extends BasicEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id", referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
 }

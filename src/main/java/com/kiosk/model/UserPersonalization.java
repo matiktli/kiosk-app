@@ -1,12 +1,12 @@
 package com.kiosk.model;
 
-import com.kiosk.model.type.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
 @Entity
@@ -16,6 +16,5 @@ import java.util.List;
 public class UserPersonalization extends BasicEntity {
 
     @Column(name = "fav_event_types", nullable = false)
-    @Enumerated(value = EnumType.STRING)
-    private List<EventType> favEventTypes;
+    private String favEventTypes;
 }

@@ -23,16 +23,10 @@ public class BankProvider extends BasicEntity {
     private String incentive;
 
     @Column(name = "student_score", nullable = false)
-    private String studentScore;
+    private Double studentScore;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Location location;
-
-    /*@Column(name = "type", nullable = false)
-    @Enumerated(value = EnumType.STRING)
-    private NeedyType type;*/
-
-
 
 }

@@ -31,8 +31,8 @@ public class Event extends BasicEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @OneToOne
+    @JoinColumn(name = "location_id")
     private Location location;
 
 }
