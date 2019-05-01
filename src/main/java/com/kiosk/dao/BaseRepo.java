@@ -6,5 +6,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BaseRepo extends PagingAndSortingRepository<BasicEntity, Long>, JpaSpecificationExecutor<BasicEntity> {
+public interface BaseRepo<D extends BasicEntity> extends PagingAndSortingRepository<D, Long>, JpaSpecificationExecutor<D> {
 }
