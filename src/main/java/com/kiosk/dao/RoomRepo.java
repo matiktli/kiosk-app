@@ -1,0 +1,8 @@
+package com.kiosk.dao;
+
+import com.kiosk.model.Room;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface RoomRepo extends BaseRepo<Room> {
+}
