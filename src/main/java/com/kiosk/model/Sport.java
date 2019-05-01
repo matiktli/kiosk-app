@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "sport")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Sport extends BasicEntity {
+public class Sport extends BaseEntity {
 
     @Column(name = "type", nullable = false)
     @Enumerated(value = EnumType.STRING)

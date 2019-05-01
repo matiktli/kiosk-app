@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Table(name = "event")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event extends BasicEntity {
+public class Event extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
