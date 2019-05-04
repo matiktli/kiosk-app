@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,6 +20,11 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(value = { ObjectNotFoundException.class })
     public ResponseEntity<Object> handleNotFoundException(Exception ex, WebRequest webRequest) {
         return handleException(ex, HttpStatus.NOT_FOUND, webRequest);
+    }
+
+    @ExceptionHandler(value = { UsernameNotFoundException.class })
+    public ResponseEntity<Object> handleSecurityException(Exception ex, WebRequest webRequest) {
+        return handleException(ex, HttpStatus.UNAUTHORIZED, webRequest);
     }
 
     @ExceptionHandler(value = { Exception.class, BaseKioskException.class })

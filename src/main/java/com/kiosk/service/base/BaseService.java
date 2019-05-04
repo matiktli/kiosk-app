@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public abstract class BaseService<C extends BaseEntity> {
 
-    private final BaseRepo<C> repo;
+    protected final BaseRepo<C> repo;
 
     public BaseService(BaseRepo<C> repo) {
         this.repo = repo;
