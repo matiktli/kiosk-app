@@ -28,6 +28,7 @@ public interface BaseKioskController<T extends BaseDTO> {
     public static final String USER_BASE_URL = BASE_URL + "/user";
     public static final String USER_BASE_PERSONALIZATION_URL = BASE_URL + "/userpersonalization";
 
+    public static final String USER_REGISTER_URL = USER_BASE_URL + "/register";
     public static final String USER_LOGIN_URL = USER_BASE_URL + "/login";
     public static final String USER_LOGOUT_URL = USER_BASE_URL + "/logout";
 

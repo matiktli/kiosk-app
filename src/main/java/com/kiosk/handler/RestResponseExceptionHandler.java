@@ -43,7 +43,7 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
         }
         int internalCode = -1;
         if (ex instanceof BaseKioskException) {
-            internalCode = ((BaseKioskException) ex).getInternalCode();
+            internalCode = ((BaseKioskException) ex).getInternalCode().getValue();
         }
         ErrorResponse errorResponse = new ErrorResponse(httpStatus.value(), internalCode, errorMessage);
         return handleExceptionInternal(ex, errorResponse, new HttpHeaders(), httpStatus, webRequest);

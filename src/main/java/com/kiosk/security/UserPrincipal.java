@@ -3,6 +3,7 @@ package com.kiosk.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.kiosk.model.User;
+import com.kiosk.model.type.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class UserPrincipal implements UserDetails {
 
     private Integer id;
 
+    private UserType type;
+
     @JsonIgnore
     private String username;
 
@@ -38,8 +41,13 @@ public class UserPrincipal implements UserDetails {
                 .id(user.getId())
                 .password(user.getPassword())
                 .username(user.getEmail())
+                .type(user.getType())
                 .authorities(authorities)
                 .build();
+    }
+
+    public User getUserData() {
+        return new User(getType(), "---", "---", getUsername(), getPassword(), "---", null);
     }
 
     @Override
