@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class TagService extends BaseService<Tag> {
 
     @Autowired
-    private TagRepo tagRepo;
-
+    public TagService(TagRepo repo) {
+        super(repo);
+    }
 }

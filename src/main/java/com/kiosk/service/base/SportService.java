@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class SportService extends BaseService<Sport> {
 
     @Autowired
-    private SportRepo sportRepo;
-
+    public SportService(SportRepo repo) {
+        super(repo);
+    }
 }

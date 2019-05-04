@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserPersonalizationService extends BaseService<UserPersonalization> {
 
     @Autowired
-    private UserPersonalizationRepo userPersonalizationRepo;
-
+    public UserPersonalizationService(UserPersonalizationRepo repo) {
+        super(repo);
+    }
 }

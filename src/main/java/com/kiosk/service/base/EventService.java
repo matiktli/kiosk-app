@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class EventService extends BaseService<Event> {
 
     @Autowired
-    private EventRepo eventRepo;
-
+    public EventService(EventRepo repo) {
+        super(repo);
+    }
 }

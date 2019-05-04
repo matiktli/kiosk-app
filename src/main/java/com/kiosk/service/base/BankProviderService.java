@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class BankProviderService extends BaseService<BankProvider> {
 
     @Autowired
-    private BankProviderRepo bankProviderRepo;
-
+    public BankProviderService(BankProviderRepo repo) {
+        super(repo);
+    }
 }
