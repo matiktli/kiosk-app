@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "tag")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tag extends BasicEntity {
+public class Tag extends BaseEntity {
 
     @Column(name = "ref_type", nullable = false)
     @Enumerated(value = EnumType.STRING)

@@ -43,6 +43,7 @@ dependencies {
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.modelmapper:modelmapper:2.3.2'
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-guava:2.9.5'
 	compileOnly 'org.projectlombok:lombok:1.18.4'
 	apt 'org.projectlombok:lombok:1.18.4'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'

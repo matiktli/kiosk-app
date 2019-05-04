@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table(name = "user_personalization")
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserPersonalization extends BasicEntity {
+public class UserPersonalization extends BaseEntity {
 
     @Column(name = "fav_event_types", nullable = false)
     private String favEventTypes;

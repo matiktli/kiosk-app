@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "user")
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BasicEntity {
+public class User extends BaseEntity {
 
     @Column(name = "user_type", nullable = false)
     @Enumerated(value = EnumType.STRING)

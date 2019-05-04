@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "room")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Room extends BasicEntity {
+public class Room extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;

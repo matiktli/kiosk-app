@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Table(name = "room_booking")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoomBooking extends BasicEntity {
+public class RoomBooking extends BaseEntity {
 
     @Column(name = "type", nullable = false)
     @Enumerated(value = EnumType.STRING)

@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @Table(name = "discount")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Discount extends BasicEntity {
+public class Discount extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;

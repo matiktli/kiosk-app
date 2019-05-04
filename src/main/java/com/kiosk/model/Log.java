@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Table(name = "logs")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Log extends BasicEntity {
+public class Log extends BaseEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
