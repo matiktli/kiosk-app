@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ErrorResponse {
 
     private int httpStatus;
-    private int internalCode;
+    private Integer internalCode;
     private String message;
 
 }
