@@ -7,6 +7,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.util.Optional;
+
 @UtilityClass
 public class SecurityUtils {
 
@@ -24,14 +26,14 @@ public class SecurityUtils {
             "/webjars/**"
     };
 
-    public static User getCurrentUser() {
-        User currentUser = null;
+    public static Optional<User> getCurrentUser() {
+        Optional<User> currentUser = Optional.empty();
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null) {
             Authentication auth = context.getAuthentication();
             if (auth != null && auth.getPrincipal() instanceof UserPrincipal ) {
                 UserPrincipal principal = (UserPrincipal) auth.getPrincipal();
-                return principal.getUserData();
+                return Optional.of(principal.getUserData());
             }
         }
         return currentUser;

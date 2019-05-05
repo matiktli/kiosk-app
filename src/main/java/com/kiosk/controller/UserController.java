@@ -27,6 +27,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class UserController implements BaseKioskController<UserDTO>{
@@ -85,14 +86,14 @@ public class UserController implements BaseKioskController<UserDTO>{
     @PostMapping(value = USER_REGISTER_URL)
     @Validated
     public ResponseEntity<JwtTokenResponse> register(@RequestBody RegisterRequest registerRequest) {
-        User currentAuth = SecurityUtils.getCurrentUser();
+        Optional<User> currentAuth = SecurityUtils.getCurrentUser();
         UserDTO userDTO = UserDTO.builder()
                 .email(registerRequest.getEmail())
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
                 .password(registerRequest.getPassword())
                 .studentNumber(registerRequest.getStudentNumber())
-                .type((currentAuth != null && currentAuth.getType() == UserType.ADMIN) ? registerRequest.getUserType() : UserType.USER)
+                .type(currentAuth.isPresent() && currentAuth.get().getType() == UserType.ADMIN && registerRequest.getUserType() != null ? registerRequest.getUserType() : UserType.USER)
                 .build();
         User userToSave = userTransformer.toEntity(userDTO);
         userToSave.setPassword(passwordEncoder.encode(userToSave.getPassword()));
