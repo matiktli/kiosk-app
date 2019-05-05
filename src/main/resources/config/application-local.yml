@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    #url: TBD
+    url: jdbc:mysql://localhost:3306/kiosk_db?leuseUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: kioskdb_admin
+    password: password
+    #driver-class-name: oracle.jdbc.driver.OracleDriver
+    driver-class-name: com.mysql.jdbc.Driver
+  flyway:
+    user: kioskdb_admin
+    password: password
+  jpa:
+    hibernate:
+      use-new-id-generator-mappings: false
+  application:
+    name: KioskApp
+
+server:
+  port: 5000
