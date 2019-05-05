@@ -16,7 +16,7 @@ public class CustomMethodSecurityExpressionRoot extends SecurityExpressionRoot i
         super(authentication);
     }
 
-    public boolean isIdMatching(Integer idToCompare) {
+    public boolean isUserMatching(Integer idToCompare) {
         User currentUser = getCurrentUser()
                 .orElseThrow(() -> new SecurityException("User not present in context"));
         return currentUser.getId().equals(idToCompare);

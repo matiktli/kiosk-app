@@ -68,6 +68,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(SecurityUtils.SWAGGER_PATHS)
                 .permitAll()
+                .antMatchers(SecurityUtils.PATHS_AVAILABLE_FOR_GUESTS)
+                .permitAll()
                 .anyRequest()
                 .authenticated();
 
