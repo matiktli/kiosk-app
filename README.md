@@ -1,4 +1,3 @@
-
 ## How to run:
 
 ###### (TMP until figure out Orcale Database)
@@ -7,4 +6,4 @@
 ###### (TMP --end)
 
 3. Get [JAR](https://drive.google.com/open?id=1F75bQUBOVyCNnE-LSvC1Foruh4rLibxh)
-4. Run: `java -Dspring.profiles.active=local -jar kioskapp-0.1.0_MVP_.jar`
+4. Run: `java -Dspring.profiles.active=local -jar JAR_NAME_HERE.jar`
