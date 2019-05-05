@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class DiscountService extends BaseService<Discount> {
 
     @Autowired
-    private DiscountRepo discountRepo;
-
+    public DiscountService(DiscountRepo repo) {
+        super(repo);
+    }
 }

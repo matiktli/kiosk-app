@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class LogService extends BaseService<Log> {
 
     @Autowired
-    private LogRepo logRepo;
-
+    public LogService(LogRepo repo) {
+        super(repo);
+    }
 }

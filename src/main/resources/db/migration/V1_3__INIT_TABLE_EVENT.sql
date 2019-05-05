@@ -1,6 +1,6 @@
 -- Table: event
 CREATE TABLE event (
-  id integer  NOT NULL,
+  id integer AUTO_INCREMENT NOT NULL,
   event_type varchar(32)  NOT NULL,
   name varchar(32)  NOT NULL,
   start_date date  NOT NULL,

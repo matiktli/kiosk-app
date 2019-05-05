@@ -14,6 +14,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Tag extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Integer id;
+
     @Column(name = "ref_type", nullable = false)
     @Enumerated(value = EnumType.STRING)
     private TagRefType refType;

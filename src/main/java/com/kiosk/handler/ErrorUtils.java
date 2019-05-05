@@ -1,5 +1,6 @@
 package com.kiosk.handler;
 
+import lombok.Getter;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -11,5 +12,15 @@ public class ErrorUtils {
     public static final String MSG_INSTANT = "Object not found";
 
 
-    public static final int INT_CODE_DATABASE_ISSUE = 1000;
+    @Getter
+    public enum ErrorCodes {
+        NOT_SPECIFIED(-1),
+        DATABASE_ISSUE(1000);
+
+        private int value;
+
+        ErrorCodes(int internalErrorCode) {
+            this.value = internalErrorCode;
+        }
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class LocationService extends BaseService<Location> {
 
     @Autowired
-    private LocationRepo locationRepo;
-
+    public LocationService(LocationRepo repo) {
+        super(repo);
+    }
 }

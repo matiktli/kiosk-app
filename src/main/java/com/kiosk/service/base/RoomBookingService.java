@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class RoomBookingService extends BaseService<RoomBooking> {
 
     @Autowired
-    private RoomBookingRepo roomBookingRepo;
-
+    public RoomBookingService(RoomBookingRepo repo) {
+        super(repo);
+    }
 }

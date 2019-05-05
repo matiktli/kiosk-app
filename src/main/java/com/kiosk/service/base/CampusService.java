@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 public class CampusService extends BaseService<Campus> {
 
     @Autowired
-    private CampusRepo campusRepo;
+    public CampusService(CampusRepo repo) {
+        super(repo);
+    }
 
 }

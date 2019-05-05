@@ -1,6 +1,6 @@
 -- Table: campus
 CREATE TABLE campus (
-  id integer  NOT NULL,
+  id integer AUTO_INCREMENT NOT NULL,
   name varchar(32)  NOT NULL,
   description varchar(500)  NULL,
   contact varchar(100)  NOT NULL,
