@@ -29,7 +29,12 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-public class UserController implements BaseKioskController<UserDTO>{
+public class UserController extends BaseController<UserDTO, User>{
+
+    @Autowired
+    public UserController(UserTransformer transformer, UserService service) {
+        super(transformer, service);
+    }
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -37,28 +42,18 @@ public class UserController implements BaseKioskController<UserDTO>{
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
-    @Autowired
-    private UserService userService;
-
-    @Autowired
-    private UserTransformer userTransformer;
-
-    @PreAuthorize("hasAuthority('ADMIN') || isIdMatching(#id)")
+    @PreAuthorize("hasAuthority('ADMIN') || isUserMatching(#id)")
     @GetMapping(value = USER_BASE_URL + "/{id}")
     @Override
     public ResponseEntity<UserDTO> getById(@PathVariable("id") Integer id) {
-        Optional<User> userFound = userService.findById(id);
-        if (!userFound.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(userFound.map(userTransformer::toDto).get());
+        return super.getById(id);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping(value = USER_BASE_URL)
     @Override
     public ResponseEntity<Page<UserDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
-        return ResponseEntity.ok(userService.findAll(page).map(userTransformer::toDto));
+        return super.findAll(page);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
@@ -66,29 +61,24 @@ public class UserController implements BaseKioskController<UserDTO>{
     @Validated(BaseDTO.CreateValidationGroup.class)
     @Override
     public ResponseEntity<UserDTO> create(@Valid @RequestBody UserDTO dto) {
-        User user = userTransformer.toEntity(dto);
-        user = userService.save(user);
-        return ResponseEntity.ok(userTransformer.toDto(user));
+        return super.create(dto);
     }
 
-    @PreAuthorize("(hasAuthority('ADMIN') || isIdMatching(#id)) && #id == #dto.id")
+    @PreAuthorize("(hasAuthority('ADMIN') || isUserMatching(#id)) && #id == #dto.id")
     @PutMapping(value = USER_BASE_URL + "/{id}")
     @Validated(BaseDTO.UpdateValidationGroup.class)
     @Override
     public ResponseEntity<UserDTO> update(@PathVariable("id") Integer id,
                                                   @Valid @RequestBody UserDTO dto) {
-        User user = userTransformer.toEntity(dto);
-        user = userService.update(user);
-        return ResponseEntity.ok(userTransformer.toDto(user));
+        return super.update(id, dto);
     }
 
-    @PreAuthorize("hasAuthority('ADMIN') || isIdMatching(#id)")
+    @PreAuthorize("hasAuthority('ADMIN') || isUserMatching(#id)")
     @DeleteMapping(value = USER_BASE_URL + "/{id}")
     @Override
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) {
-        userService.delete(id);
         logout();
-        return ResponseEntity.ok().build();
+        return super.delete(id);
     }
 
     @PostMapping(value = USER_REGISTER_URL)
@@ -103,8 +93,8 @@ public class UserController implements BaseKioskController<UserDTO>{
                 .studentNumber(registerRequest.getStudentNumber())
                 .type(currentAuth.isPresent() && currentAuth.get().getType() == UserType.ADMIN && registerRequest.getUserType() != null ? registerRequest.getUserType() : UserType.USER)
                 .build();
-        User userToSave = userTransformer.toEntity(userDTO);
-        userService.save(userToSave);
+        User userToSave = transformer.toEntity(userDTO);
+        service.save(userToSave);
         return login(new LoginRequest(registerRequest.getEmail(), registerRequest.getPassword()));
     }
 

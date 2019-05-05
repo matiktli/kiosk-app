@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
-public interface BaseKioskController<T extends BaseDTO> {
+public interface KioskAppService<T extends BaseDTO> {
 
     public static final String BASE_URL = "/kiosk";
 
@@ -26,7 +26,7 @@ public interface BaseKioskController<T extends BaseDTO> {
     public static final String SPORT_BASE_URL = BASE_URL + "/sport";
     public static final String TAG_BASE_URL = BASE_URL + "/tag";
     public static final String USER_BASE_URL = BASE_URL + "/user";
-    public static final String USER_BASE_PERSONALIZATION_URL = BASE_URL + "/userpersonalization";
+    public static final String USER_PERSONALIZATION_BASE_URL = BASE_URL + "/userpersonalization";
 
     public static final String USER_REGISTER_URL = USER_BASE_URL + "/register";
     public static final String USER_LOGIN_URL = USER_BASE_URL + "/login";

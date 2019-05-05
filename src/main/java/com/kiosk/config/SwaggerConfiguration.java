@@ -7,7 +7,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import static com.kiosk.controller.BaseKioskController.BASE_URL;
+import static com.kiosk.controller.KioskAppService.BASE_URL;
 
 @Configuration
 @EnableSwagger2
