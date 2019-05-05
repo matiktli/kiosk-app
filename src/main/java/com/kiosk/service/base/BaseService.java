@@ -4,6 +4,8 @@ import com.kiosk.dao.BaseRepo;
 import com.kiosk.exception.ObjectNotFoundException;
 import com.kiosk.handler.ErrorUtils;
 import com.kiosk.model.BaseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -29,5 +31,13 @@ public abstract class BaseService<C extends BaseEntity> {
         C found = findById(id)
                 .orElseThrow(() -> new ObjectNotFoundException(ErrorUtils.MSG_INSTANT,  ErrorUtils.ErrorCodes.DATABASE_ISSUE));
         repo.delete(found);
+    }
+
+    public Page<C> findAll(Pageable pageable) {
+        return repo.findAll(pageable);
+    }
+
+    public C update(C entity) {
+        return this.save(entity);
     }
 }

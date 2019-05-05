@@ -1,4 +1,4 @@
-package com.kiosk.security;
+package com.kiosk.security.user;
 
 import com.kiosk.model.User;
 import com.kiosk.service.base.UserService;

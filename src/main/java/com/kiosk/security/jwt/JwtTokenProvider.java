@@ -1,5 +1,6 @@
-package com.kiosk.security;
+package com.kiosk.security.jwt;
 
+import com.kiosk.security.user.UserPrincipal;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
