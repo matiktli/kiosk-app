@@ -1,6 +1,6 @@
 -- Table: discount
 CREATE TABLE discount (
-  id integer  NOT NULL,
+  id integer AUTO_INCREMENT NOT NULL,
   name varchar(32)  NOT NULL,
   description varchar(500)  NULL,
   start_date date  NOT NULL,

@@ -1,6 +1,6 @@
 -- Table: logs
 CREATE TABLE logs (
-  id integer  NOT NULL,
+  id integer AUTO_INCREMENT NOT NULL,
   user_id integer  NULL,
   timestamp timestamp  NOT NULL,
   action_type varchar(32)  NOT NULL,

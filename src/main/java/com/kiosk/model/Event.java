@@ -15,6 +15,11 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class Event extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Integer id;
+
     @Column(name = "name", nullable = false)
     private String name;
 

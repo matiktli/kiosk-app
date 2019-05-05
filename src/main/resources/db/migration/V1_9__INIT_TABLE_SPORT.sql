@@ -1,6 +1,6 @@
 -- Table: sport
 CREATE TABLE sport (
-  id integer  NOT NULL,
+  id integer AUTO_INCREMENT NOT NULL,
   type varchar(32)  NOT NULL,
   name varchar(32)  NOT NULL,
   training_times varchar(500)  NULL,
