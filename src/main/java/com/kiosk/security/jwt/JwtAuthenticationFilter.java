@@ -1,5 +1,6 @@
-package com.kiosk.security;
+package com.kiosk.security.jwt;
 
+import com.kiosk.security.user.CustomUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

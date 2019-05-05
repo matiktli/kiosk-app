@@ -1,9 +1,7 @@
 package com.kiosk.exception;
 
 import com.kiosk.handler.ErrorUtils;
-import lombok.Data;
 
-@Data
 public class ObjectNotFoundException extends BaseKioskException {
 
     public ObjectNotFoundException(ErrorUtils.ErrorCodes internalCode) {

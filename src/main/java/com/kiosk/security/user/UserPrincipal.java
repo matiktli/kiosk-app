@@ -1,4 +1,4 @@
-package com.kiosk.security;
+package com.kiosk.security.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;

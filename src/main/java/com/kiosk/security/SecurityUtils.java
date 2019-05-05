@@ -2,6 +2,7 @@ package com.kiosk.security;
 
 import com.kiosk.controller.BaseKioskController;
 import com.kiosk.model.User;
+import com.kiosk.security.user.UserPrincipal;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -31,7 +32,7 @@ public class SecurityUtils {
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null) {
             Authentication auth = context.getAuthentication();
-            if (auth != null && auth.getPrincipal() instanceof UserPrincipal ) {
+            if (auth != null && auth.getPrincipal() instanceof UserPrincipal) {
                 UserPrincipal principal = (UserPrincipal) auth.getPrincipal();
                 return Optional.of(principal.getUserData());
             }

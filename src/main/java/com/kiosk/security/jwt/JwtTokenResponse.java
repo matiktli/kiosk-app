@@ -1,4 +1,4 @@
-package com.kiosk.security;
+package com.kiosk.security.jwt;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
