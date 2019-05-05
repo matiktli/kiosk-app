@@ -10,9 +10,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 @UtilityClass
 public class SecurityUtils {
 
-    public static final String[] FILTER_DISABLED = {
+    public static final String[] LOGIN_REGISTER_PATHS = {
             BaseKioskController.USER_LOGIN_URL,
             BaseKioskController.USER_REGISTER_URL
+    };
+
+    public static final String[] SWAGGER_PATHS = {
+            "/v2/api-docs",
+            "/configuration/ui",
+            "/swagger-resources/**",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**"
     };
 
     public static User getCurrentUser() {
