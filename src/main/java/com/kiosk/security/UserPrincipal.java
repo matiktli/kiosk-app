@@ -47,7 +47,7 @@ public class UserPrincipal implements UserDetails {
     }
 
     public User getUserData() {
-        return new User(getType(), "---", "---", getUsername(), getPassword(), "---", null);
+        return new User(getId(), getType(), "---", "---", getUsername(), getPassword(), "---", null);
     }
 
     @Override

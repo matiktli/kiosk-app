@@ -20,7 +20,7 @@ public class SecurityUtils {
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null) {
             Authentication auth = context.getAuthentication();
-            if (auth != null) {
+            if (auth != null && auth.getPrincipal() instanceof UserPrincipal ) {
                 UserPrincipal principal = (UserPrincipal) auth.getPrincipal();
                 return principal.getUserData();
             }
