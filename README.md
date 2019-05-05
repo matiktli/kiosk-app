@@ -7,3 +7,4 @@
 
 3. Get [JAR](https://drive.google.com/open?id=1F75bQUBOVyCNnE-LSvC1Foruh4rLibxh)
 4. Run: `java -Dspring.profiles.active=local -jar JAR_NAME_HERE.jar`
+5. Swagger under: [http://localhost:5000/swagger-ui.html](http://localhost:5000/swagger-ui.html)
