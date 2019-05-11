@@ -18,7 +18,7 @@ public class LogDTO extends BaseDTO {
     @NotNull(message = "name should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
     private String name;
 
-    private UserDTO user;
+    private Integer userId;
 
     @NotNull(message = "timestamp should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
     private Timestamp timestamp;
