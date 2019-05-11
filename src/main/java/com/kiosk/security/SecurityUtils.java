@@ -1,6 +1,7 @@
 package com.kiosk.security;
 
 import com.kiosk.controller.KioskAppService;
+import com.kiosk.exception.SecurityException;
 import com.kiosk.model.User;
 import com.kiosk.security.user.UserPrincipal;
 import lombok.experimental.UtilityClass;
@@ -43,7 +44,7 @@ public class SecurityUtils {
             "/webjars/**"
     };
 
-    public static Optional<User> getCurrentUser() {
+    public static Optional<User> getCurrentUserOptional() {
         Optional<User> currentUser = Optional.empty();
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null) {
@@ -54,5 +55,17 @@ public class SecurityUtils {
             }
         }
         return currentUser;
+    }
+
+    public static User getCurrentUser() {
+        SecurityContext context = SecurityContextHolder.getContext();
+        if (context != null) {
+            Authentication auth = context.getAuthentication();
+            if (auth != null && auth.getPrincipal() instanceof UserPrincipal) {
+                UserPrincipal principal = (UserPrincipal) auth.getPrincipal();
+                return principal.getUserData();
+            }
+        }
+        throw new SecurityException("User not present in context");
     }
 }
