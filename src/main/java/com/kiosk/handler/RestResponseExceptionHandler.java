@@ -2,6 +2,7 @@ package com.kiosk.handler;
 
 import com.kiosk.exception.BaseKioskException;
 import com.kiosk.exception.ObjectNotFoundException;
+import com.kiosk.exception.RoomBookingException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,11 @@ public class RestResponseExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(value = { UsernameNotFoundException.class, BadCredentialsException.class, AccessDeniedException.class})
     public ResponseEntity<Object> handleSecurityException(Exception ex, WebRequest webRequest) {
         return handleException(ex, HttpStatus.UNAUTHORIZED, webRequest);
+    }
+
+    @ExceptionHandler(value = { RoomBookingException.class } )
+    public ResponseEntity<Object> handleBadRequestExceptions(Exception ex, WebRequest webRequest) {
+        return handleException(ex, HttpStatus.BAD_REQUEST, webRequest);
     }
 
     @ExceptionHandler(value = { Exception.class, BaseKioskException.class })

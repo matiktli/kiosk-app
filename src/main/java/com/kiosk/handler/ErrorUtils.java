@@ -7,10 +7,10 @@ import lombok.experimental.UtilityClass;
 public class ErrorUtils {
 
     public static final String MSG_PARAM_OBJECT_NOT_FOUND = "Object %s with id: [%s] not found";
+    public static final String MSG_INSTANT_OBJECT_NOT_FOUND = "Object not found";
 
-
-    public static final String MSG_INSTANT = "Object not found";
-
+    public static final String MSG_PARAM_ROOM_NOT_AVAILABLE = "Room with id: [%s] is not available between [%s] and [%s]";
+    public static final String MSG_INSTANT_ROOM_NOT_FOUND = "Room not existing for booking";
 
     @Getter
     public enum ErrorCodes {

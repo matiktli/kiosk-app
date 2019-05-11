@@ -34,7 +34,7 @@ public abstract class BaseEntity {
 
     @PrePersist
     protected void prePersist() {
-        SecurityUtils.getCurrentUser()
+        SecurityUtils.getCurrentUserOptional()
                 .ifPresent(user -> {
                     createdByUser = user.getId();
                     updatedByUser = user.getId();
@@ -43,7 +43,7 @@ public abstract class BaseEntity {
 
     @PreUpdate
     protected void preUpdate() {
-        SecurityUtils.getCurrentUser()
+        SecurityUtils.getCurrentUserOptional()
                 .ifPresent(user -> updatedByUser = user.getId());
     }
 }

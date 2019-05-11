@@ -29,7 +29,7 @@ public abstract class BaseService<C extends BaseEntity> {
 
     public void delete(Integer id) {
         C found = findById(id)
-                .orElseThrow(() -> new ObjectNotFoundException(ErrorUtils.MSG_INSTANT,  ErrorUtils.ErrorCodes.DATABASE_ISSUE));
+                .orElseThrow(() -> new ObjectNotFoundException(ErrorUtils.MSG_INSTANT_OBJECT_NOT_FOUND,  ErrorUtils.ErrorCodes.DATABASE_ISSUE));
         repo.delete(found);
     }
 

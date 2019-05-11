@@ -84,7 +84,7 @@ public class UserController extends BaseController<UserDTO, User>{
     @PostMapping(value = USER_REGISTER_URL)
     @Validated
     public ResponseEntity<JwtTokenResponse> register(@RequestBody RegisterRequest registerRequest) {
-        Optional<User> currentAuth = SecurityUtils.getCurrentUser();
+        Optional<User> currentAuth = SecurityUtils.getCurrentUserOptional();
         UserDTO userDTO = UserDTO.builder()
                 .email(registerRequest.getEmail())
                 .firstName(registerRequest.getFirstName())
