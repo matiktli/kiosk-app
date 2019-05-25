@@ -1,0 +1,1 @@
+ALTER TABLE `bank_provider` MODIFY name char(64) NOT NULL;

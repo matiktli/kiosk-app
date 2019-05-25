@@ -23,5 +23,5 @@ public class CampusDTO extends BaseDTO {
     private String contact;
 
     //@NotNull(message = "name should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
-    private LocationDTO location;
+    private Integer locationId;
 }

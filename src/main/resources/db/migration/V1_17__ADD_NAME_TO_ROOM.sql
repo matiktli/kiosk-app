@@ -1,0 +1,1 @@
+ALTER TABLE room ADD COLUMN name char(64) NULL;

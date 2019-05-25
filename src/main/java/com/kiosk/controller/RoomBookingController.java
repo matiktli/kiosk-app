@@ -1,5 +1,7 @@
 package com.kiosk.controller;
 
+import static com.kiosk.config.ObjectMapperConfiguration.DATE_FORMAT;
+
 import com.kiosk.dto.BaseDTO;
 import com.kiosk.dto.RoomBookingDTO;
 import com.kiosk.model.RoomBooking;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,11 +72,14 @@ public class RoomBookingController extends BaseController<RoomBookingDTO, RoomBo
         return super.delete(id);
     }
 
-    @GetMapping(value = ROOM_BOOKING_BASE_URL)
-    public ResponseEntity<List<RoomBookingDTO>> findAllBookingsForRoom(@RequestParam("roomId") Integer roomId,
-                                                                       @RequestParam(value = "fromDate", required = false) Timestamp fromDate,
-                                                                       @RequestParam(value = "toDate", required = false) Timestamp toDate) {
-        List<RoomBooking> foundBookings = ((RoomBookingService) service).findAllBookingsForRoom(roomId, fromDate, toDate);
+    @GetMapping(value = ROOM_BOOKING_PER_ROOM)
+    public ResponseEntity<List<RoomBookingDTO>> findAllBookingsForRoom(@RequestParam(value = "roomId", required = false) Integer roomId,
+                                                                       @RequestParam(value = "fromDate", required = false) @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime fromDate,
+                                                                       @RequestParam(value = "toDate", required = false) @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime toDate) {
+
+        List<RoomBooking> foundBookings = ((RoomBookingService) service).findAllBookingsWithParams(roomId,
+                fromDate != null ? Timestamp.valueOf(fromDate) : null,
+                toDate != null ? Timestamp.valueOf(toDate): null);
         List<RoomBookingDTO> result = foundBookings.stream().map(transformer::toDto).collect(Collectors.toList());
         return ResponseEntity.ok(result);
     }

@@ -29,5 +29,5 @@ public class EventDTO extends BaseDTO {
 
     private String description;
 
-    private LocationDTO location;
+    private Integer locationId;
 }
