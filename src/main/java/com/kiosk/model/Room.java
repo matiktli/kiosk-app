@@ -24,7 +24,7 @@ public class Room extends BaseEntity {
     @Column(name = "floor", nullable = false)
     private Integer floor;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "location_id")
     private Location location;
 

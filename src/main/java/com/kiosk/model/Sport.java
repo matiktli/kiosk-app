@@ -32,7 +32,7 @@ public class Sport extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "location_id")
     private Location location;
 

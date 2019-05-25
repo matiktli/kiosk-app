@@ -44,14 +44,15 @@ public class RoomBookingService extends BaseService<RoomBooking> {
     }
 
     public boolean checkIfRoomAvailable(Integer roomId, Timestamp fromDate, Timestamp toDate) {
-        List<RoomBooking> bookingsInThisTime = findAllBookingsForRoom(roomId, fromDate, toDate);
+        List<RoomBooking> bookingsInThisTime = findAllBookingsWithParams(roomId, fromDate, toDate);
         return bookingsInThisTime.isEmpty();
     }
 
-    public List<RoomBooking> findAllBookingsForRoom(Integer roomId, @Nullable Timestamp fromDate, @Nullable Timestamp toDate) {
-        List<RoomBooking> result = repo.findAll().stream()
-                .filter(booking -> booking.getRoom().getId().equals(roomId))
-                .collect(Collectors.toList());
+    public List<RoomBooking> findAllBookingsWithParams(@Nullable Integer roomId, @Nullable Timestamp fromDate, @Nullable Timestamp toDate) {
+        List<RoomBooking> result = repo.findAll();
+        if (roomId != null) {
+            result = result.stream().filter(booking -> booking.getRoom().getId().equals(roomId)).collect(Collectors.toList());
+        }
         if (fromDate != null) {
             result = result.stream().filter(booking -> booking.getStartDate().after(fromDate)).collect(Collectors.toList());
         }

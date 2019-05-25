@@ -22,7 +22,7 @@ public interface KioskAppService<T extends BaseDTO> {
     public static final String LOCATION_BASE_URL = BASE_URL + "/location";
     public static final String LOG_BASE_URL = BASE_URL + "/log";
     public static final String ROOM_BOOKING_BASE_URL = BASE_URL + "/roombooking";
-    public static final String ROOM_BOOKING_PER_ROOM = ROOM_BOOKING_BASE_URL + "/room";
+    public static final String ROOM_BOOKING_PER_ROOM = ROOM_BOOKING_BASE_URL + "/search";
     public static final String ROOM_BASE_URL = BASE_URL + "/room";
     public static final String SPORT_BASE_URL = BASE_URL + "/sport";
     public static final String TAG_BASE_URL = BASE_URL + "/tag";

@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ObjectMapperConfiguration {
 
-    private final static String DATE_FORMAT = "HH:mm:ss dd-MM-yyyy";
+    public final static String DATE_FORMAT = "HH:mm:ss dd-MM-yyyy";
 
     @Bean
     public ObjectMapper objectMapper() {

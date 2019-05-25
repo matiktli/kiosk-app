@@ -30,7 +30,7 @@ public class BankProvider extends BaseEntity {
     @Column(name = "student_score", nullable = false)
     private Double studentScore;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
     private Location location;
 
