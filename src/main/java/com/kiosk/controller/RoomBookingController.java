@@ -68,7 +68,7 @@ public class RoomBookingController extends BaseController<RoomBookingDTO, RoomBo
         return super.delete(id);
     }
 
-    @GetMapping(value = ROOM_BOOKING_BASE_URL)
+    @GetMapping(value = ROOM_BOOKING_PER_ROOM)
     public ResponseEntity<List<RoomBookingDTO>> findAllBookingsForRoom(@RequestParam("roomId") Integer roomId,
                                                                        @RequestParam(value = "fromDate", required = false) Timestamp fromDate,
                                                                        @RequestParam(value = "toDate", required = false) Timestamp toDate) {
