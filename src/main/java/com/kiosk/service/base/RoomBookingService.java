@@ -28,7 +28,7 @@ public class RoomBookingService extends BaseService<RoomBooking> {
     }
 
     public RoomBooking createBooking(RoomBooking roomBookingRequest) {
-        Room roomToBook = roomService.findById(roomBookingRequest.getId())
+        Room roomToBook = roomService.findById(roomBookingRequest.getRoom().getId())
                 .orElseThrow(() -> new ObjectNotFoundException(String.format(MSG_PARAM_OBJECT_NOT_FOUND, RoomBooking.class.getSimpleName(), roomBookingRequest.getId())));
         if (!checkIfRoomAvailable(roomToBook.getId(), roomBookingRequest.getStartDate(), roomBookingRequest.getEndDate())) {
             throw new RoomBookingException(String.format(MSG_PARAM_ROOM_NOT_AVAILABLE, roomBookingRequest.getId(), roomBookingRequest.getStartDate(), roomBookingRequest.getEndDate()));

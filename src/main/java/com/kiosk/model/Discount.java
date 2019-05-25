@@ -34,7 +34,7 @@ public class Discount extends BaseEntity {
     @Column(name = "organizator")
     private String organizator;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     private Location location;
 

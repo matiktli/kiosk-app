@@ -38,7 +38,7 @@ public class User extends BaseEntity {
     @Column(name = "student_number", unique = true)
     private String studentNumber;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "user_personalization_id", referencedColumnName = "id")
     private UserPersonalization userPersonalization;
 

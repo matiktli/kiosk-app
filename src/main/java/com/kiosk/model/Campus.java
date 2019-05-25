@@ -27,7 +27,7 @@ public class Campus extends BaseEntity {
     @Column(name = "contact", nullable = false)
     private String contact;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
     private Location location;
 

@@ -24,11 +24,11 @@ public class RoomBooking extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     private RoomBookingType type;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "room_id", referencedColumnName = "id", nullable = false)
     private Room room;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
