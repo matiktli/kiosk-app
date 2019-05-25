@@ -28,5 +28,5 @@ public class DiscountDTO extends BaseDTO {
     @NotNull(message = "organizator should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
     private String organizator;
 
-    private LocationDTO location;
+    private Integer locationId;
 }

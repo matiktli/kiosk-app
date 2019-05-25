@@ -25,5 +25,5 @@ public class SportDTO extends BaseDTO {
 
     private String description;
 
-    private LocationDTO location;
+    private Integer locationId;
 }

@@ -31,5 +31,5 @@ public class UserDTO extends BaseDTO {
 
     private String studentNumber;
 
-    private UserPersonalizationDTO userPersonalization = null;
+    private Integer userPersonalizationId = null;
 }

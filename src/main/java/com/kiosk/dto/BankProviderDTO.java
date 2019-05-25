@@ -26,5 +26,5 @@ public class BankProviderDTO extends BaseDTO {
     private Double studentScore;
 
     //@NotNull(message = "location should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
-    private LocationDTO location;
+    private Integer locationId;
 }

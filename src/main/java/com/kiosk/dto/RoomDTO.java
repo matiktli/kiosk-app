@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -19,5 +20,5 @@ public class RoomDTO extends BaseDTO {
     @NotNull(message = "floor should be present", groups = { CreateValidationGroup.class, UpdateValidationGroup.class })
     private Integer floor;
 
-    private LocationDTO location;
+    private Integer locationId;
 }
