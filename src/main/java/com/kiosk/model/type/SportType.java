@@ -1,5 +1,31 @@
 package com.kiosk.model.type;
 
 public enum SportType {
-    JOGGING;
+    JOGGING,
+    CROSSFIT,
+    FOOTBALL,
+    GOLF,
+    PARKRUN,
+    GYM,
+    SWIMMING,
+    TABLE_TENIS,
+    TAICHI,
+    WALKING,
+    WHEELCHAIR_BASKETBALL,
+    BASKETBALL,
+    YOGA,
+    ZUMBA,
+    BADMINTON,
+    ARCHERY,
+    ATHLETICS,
+    CHEERLEDING,
+    COMBAT_SPORT,
+    DANCE_CLUB,
+    FUTSAL,
+    HOCKEY,
+    KORFBALL,
+    NETBALL,
+    RUGBY,
+    VOLLEYBALL,
+    TRAMPOLINING;
 }
