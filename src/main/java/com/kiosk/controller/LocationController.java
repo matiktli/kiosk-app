@@ -33,7 +33,7 @@ public class LocationController extends BaseController<LocationDTO, Location> {
 
     @GetMapping(value = LOCATION_BASE_URL)
     @Override
-    public ResponseEntity<Page<LocationDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<LocationDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

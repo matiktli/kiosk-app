@@ -52,7 +52,7 @@ public class UserController extends BaseController<UserDTO, User>{
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping(value = USER_BASE_URL)
     @Override
-    public ResponseEntity<Page<UserDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<UserDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

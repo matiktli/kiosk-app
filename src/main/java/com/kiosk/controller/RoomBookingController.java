@@ -1,7 +1,5 @@
 package com.kiosk.controller;
 
-import static com.kiosk.config.ObjectMapperConfiguration.DATE_FORMAT;
-
 import com.kiosk.dto.BaseDTO;
 import com.kiosk.dto.RoomBookingDTO;
 import com.kiosk.model.RoomBooking;
@@ -25,6 +23,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.kiosk.config.ObjectMapperConfiguration.DATE_FORMAT;
+
 @Controller
 public class RoomBookingController extends BaseController<RoomBookingDTO, RoomBooking> {
 
@@ -41,7 +41,7 @@ public class RoomBookingController extends BaseController<RoomBookingDTO, RoomBo
 
     @GetMapping(value = ROOM_BOOKING_BASE_URL)
     @Override
-    public ResponseEntity<Page<RoomBookingDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<RoomBookingDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

@@ -33,7 +33,7 @@ public class TagController extends BaseController<TagDTO, Tag> {
 
     @GetMapping(value = TAG_BASE_URL)
     @Override
-    public ResponseEntity<Page<TagDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<TagDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

@@ -36,7 +36,7 @@ public interface KioskAppService<T extends BaseDTO> {
 
 
     ResponseEntity<T> getById(@PathParam("id") Integer id);
-    ResponseEntity<Page<T>> findAll(@PageableDefault(size = 25) Pageable page);
+    ResponseEntity<Page<T>> findAll(@PageableDefault(size = 1000) Pageable page);
     ResponseEntity<T> create(@Valid @RequestBody T dto);
     ResponseEntity<T> update(@PathVariable("id") Integer id, @Valid @RequestBody T dto);
     ResponseEntity<Void> delete(@PathVariable("id") Integer id);

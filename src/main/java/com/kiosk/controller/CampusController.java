@@ -33,7 +33,7 @@ public class CampusController extends BaseController<CampusDTO, Campus> {
 
     @GetMapping(value = CAMPUS_BASE_URL)
     @Override
-    public ResponseEntity<Page<CampusDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<CampusDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

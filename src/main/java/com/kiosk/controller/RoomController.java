@@ -33,7 +33,7 @@ public class RoomController extends BaseController<RoomDTO, Room> {
 
     @GetMapping(value = ROOM_BASE_URL)
     @Override
-    public ResponseEntity<Page<RoomDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<RoomDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 
