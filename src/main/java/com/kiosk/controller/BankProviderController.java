@@ -33,7 +33,7 @@ public class BankProviderController extends BaseController<BankProviderDTO, Bank
 
     @GetMapping(value = BANK_PROVIDER_BASE_URL)
     @Override
-    public ResponseEntity<Page<BankProviderDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<BankProviderDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

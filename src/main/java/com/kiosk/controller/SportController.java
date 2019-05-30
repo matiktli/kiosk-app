@@ -33,7 +33,7 @@ public class SportController extends BaseController<SportDTO, Sport> {
 
     @GetMapping(value = SPORT_BASE_URL)
     @Override
-    public ResponseEntity<Page<SportDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<SportDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

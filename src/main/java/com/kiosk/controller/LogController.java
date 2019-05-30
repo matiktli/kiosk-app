@@ -35,7 +35,7 @@ public class LogController extends BaseController<LogDTO, Log> {
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping(value = LOG_BASE_URL)
     @Override
-    public ResponseEntity<Page<LogDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<LogDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 

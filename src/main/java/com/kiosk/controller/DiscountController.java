@@ -33,7 +33,7 @@ public class DiscountController extends BaseController<DiscountDTO, Discount> {
 
     @GetMapping(value = DISCOUNT_BASE_URL)
     @Override
-    public ResponseEntity<Page<DiscountDTO>> findAll(@PageableDefault(size = 25) Pageable page) {
+    public ResponseEntity<Page<DiscountDTO>> findAll(@PageableDefault(size = 1000) Pageable page) {
         return super.findAll(page);
     }
 
